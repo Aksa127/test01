@@ -56,7 +56,8 @@ class DokumentasiController extends Controller
      */
     public function show(dokumentasi $dokumentasi)
     {
-        //
+        // $dokumentasi = Dokumentasi::findOrFail($dokumentasi->id);
+        // return view('edit', compact('dokumentasi'));
     }
 
     /**
@@ -71,7 +72,7 @@ class DokumentasiController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatedokumentasiRequest $request, dokumentasi $dokumentasi)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'nama' => 'required|string|max:255',
@@ -79,7 +80,7 @@ class DokumentasiController extends Controller
             'keterangan' => 'required|string'
          ]);
 
-         $dokumen = Dokumentasi::findOrdFail($id);
+         $dokumen = Dokumentasi::findOrFail($id);
          $dokumen->update($request->all());
          return redirect()->route('dokumentasi.index');
     }

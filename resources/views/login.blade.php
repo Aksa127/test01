@@ -35,7 +35,7 @@
 
         <p class="mt-4 text-sm text-center">
             Belum punya akun?
-            <a href="{{ route('registeradmin') }}" class="text-blue-600 hover:underline">Daftar di sini</a>
+            <a href="{{ route('register') }}" class="text-blue-600 hover:underline">Daftar di sini</a>
         </p>
     </div>
 

@@ -9,7 +9,7 @@
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
     <div class="w-full max-w-md p-6 bg-white rounded shadow">
-        <h2 class="text-2xl font-bold mb-6 text-center">Register Admin</h2>
+        <h2 class="text-2xl font-bold mb-6 text-center">Register</h2>
 
         @if ($errors->any())
             <ul class="mb-4 text-red-600 text-sm list-disc list-inside">
@@ -19,7 +19,7 @@
             </ul>
         @endif
 
-        <form method="POST" action="{{ route('registeradmin') }}" class="space-y-4">
+        <form method="POST" action="{{ route('register') }}" class="space-y-4">
             @csrf
 
             <div>

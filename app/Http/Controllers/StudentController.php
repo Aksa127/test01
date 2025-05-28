@@ -24,7 +24,7 @@ class StudentController extends Controller
             'password' => ['required'],
         ]);
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::guard('student')->attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->intended('/');
         }
@@ -45,18 +45,18 @@ class StudentController extends Controller
     {
         $request->validate([
             'name' => ['required'],
-            'email' => ['required', 'email', 'unique:admins'],
+            'email' => ['required', 'email', 'unique:students'],
             'password' => ['required', 'confirmed', 'min:6'],
         ]);
 
-        Admin::create([
+        student::create([
             'name' => $request->name,
             'email'=> $request->email,
             'password' => Hash::make($request->password),
         ]);
 
         return redirect()->route('login')->with('success', 'Berhasil daftar, silakan login.');
-    }
+}
 
 
 }
